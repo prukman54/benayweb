@@ -1,6 +1,8 @@
 import React from "react";
-import { IoIosArrowForward } from "react-icons/io";
 import Item from "./Item";
+import getUserSession from "@/utils/getUserSession";
+import { IoIosArrowForward } from "react-icons/io";
+import { redirect } from "next/navigation";
 
 const BEFORE_CASHOUT_RULES = [
   {
@@ -110,7 +112,15 @@ const COMMENTS_TO_SHARE = [
   },
 ];
 
-const Copypase = () => {
+const Copypase = async () => {
+  const {
+    data: { session },
+  } = await getUserSession();
+
+  if (!session) {
+    return redirect("/login");
+  }
+
   return (
     <div className="w-[90%] mx-auto my-section grid grid-cols-12 gap-[2.5rem] md:gap-0 md:gap-y-[5rem]">
       <div className="col-span-6 bg-black/10 p-[2rem] border border-white/10 rounded-[1.25rem] md:col-span-12">

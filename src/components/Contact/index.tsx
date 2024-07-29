@@ -8,9 +8,9 @@ const Contact = () => {
         <SectionTitle title="Drop <span>Message</span> For us." />
       </div>
 
-      <form className="w-[60%] mx-auto">
-        <div className="grid grid-cols-12 gap-x-[2.5rem] mb-[2rem]">
-          <div className="col-span-6">
+      <form className="w-[60%] mx-auto md:w-[90%]">
+        <div className="grid grid-cols-12 gap-x-[2.5rem] mb-[2rem] md:gap-x-0 md:gap-y-[2.5rem]">
+          <div className="col-span-6 md:col-span-12">
             <input
               className="py-5 leading-[1] px-6 bg-black/40 rounded-[.25rem] w-full placeholder:text-white/70 placeholder:font-medium placeholder:tracking-wide"
               type="text"
@@ -18,7 +18,7 @@ const Contact = () => {
             />
           </div>
 
-          <div className="col-span-6">
+          <div className="col-span-6 md:col-span-12">
             <input
               className="py-5 leading-[1] px-6 bg-black/40 rounded-[.25rem] w-full placeholder:text-white/70 placeholder:font-medium placeholder:tracking-wide placeholder:capitalize"
               type="text"

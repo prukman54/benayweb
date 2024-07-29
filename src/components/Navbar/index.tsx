@@ -1,5 +1,6 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { GlobalContext } from "@/context/global";
 import MobileMenu from "./MobileMenu";
 import Link from "next/link";
 
@@ -17,6 +18,7 @@ const navigation: NavigationItem[] = [
 ];
 
 const Navbar: React.FC = () => {
+  const { user } = useContext(GlobalContext);
   const [scrolled, setScrolled] = useState(false);
   const [showMobileNav, setShowMobileNav] = useState(false);
 
@@ -63,9 +65,11 @@ const Navbar: React.FC = () => {
         </ul>
 
         <div className="flex items-center gap-5">
-          <button className="py-3 px-8 rounded-[.75rem] hover:text-white hover:transition-all hover:bg-gradient-to-r hover:from-primary hover:to-secondary bg-white/20 text-[1.2rem] leading-[1] capitalize text-white/80 font-medium">
-            login
-          </button>
+          <Link href={user ? "/dashboard" : "/login"}>
+            <button className="py-3 px-8 rounded-[.75rem] hover:text-white hover:transition-all hover:bg-gradient-to-r hover:from-primary hover:to-secondary bg-white/20 text-[1.2rem] leading-[1] capitalize text-white/80 font-medium">
+              {user ? "dashboard" : "login"}
+            </button>
+          </Link>
 
           <div
             onClick={() => setShowMobileNav(!showMobileNav)}
